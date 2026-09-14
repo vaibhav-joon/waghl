@@ -1,0 +1,46 @@
+{
+  "name": "n8n-nodes-waghl",
+  "version": "1.0.0",
+  "description": "n8n community node for sending WhatsApp messages through the WAGHL API",
+  "license": "MIT",
+  "keywords": ["n8n-community-node-package", "n8n", "waghl", "whatsapp"],
+  "author": {
+    "name": "WAGHL",
+    "url": "https://waghl.com"
+  },
+  "homepage": "https://waghl.com",
+  "bugs": {
+    "url": "https://github.com/waghl/n8n-nodes-waghl/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waghl/n8n-nodes-waghl.git"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix",
+    "test": "npm run lint && npm run build",
+    "test:package": "npx @n8n/scan-community-package n8n-nodes-waghl",
+    "release": "n8n-node release",
+    "prepublishOnly": "n8n-node prerelease"
+  },
+  "files": ["dist"],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "strict": true,
+    "credentials": ["dist/credentials/WaghlApi.credentials.js"],
+    "nodes": ["dist/nodes/Waghl/Waghl.node.js"]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "*",
+    "eslint": "9.39.4",
+    "prettier": "3.8.3",
+    "release-it": "20.2.0",
+    "typescript": "5.9.3"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}

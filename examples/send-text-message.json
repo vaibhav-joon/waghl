@@ -1,0 +1,41 @@
+{
+  "name": "Send a WAGHL text message",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "6d00263e-d3de-42a9-9f4f-0c5eb67ef94e",
+      "name": "Manual Trigger",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [260, 300]
+    },
+    {
+      "parameters": {
+        "operation": "sendText",
+        "sender": "+919876543210",
+        "number": "+14155552671",
+        "message": "Hello from n8n and WAGHL"
+      },
+      "id": "ceb80799-1d34-4a5d-8c91-a5361ab56a7e",
+      "name": "WAGHL",
+      "type": "n8n-nodes-waghl.waghl",
+      "typeVersion": 1,
+      "position": [480, 300],
+      "credentials": {
+        "waghlApi": {
+          "id": "REPLACE_WITH_CREDENTIAL_ID",
+          "name": "WAGHL API"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Manual Trigger": {
+      "main": [[{"node": "WAGHL", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {},
+  "versionId": "f46cf1e3-5d48-4dbd-ba8a-5fa4a930f800"
+}
