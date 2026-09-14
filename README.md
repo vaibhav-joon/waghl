@@ -70,7 +70,7 @@ The GitHub Actions workflows validate every change and publish releases with npm
 
 Before creating the first GitHub release:
 
-1. Confirm that this repository is public at `https://github.com/waghl/n8n-nodes-waghl` and that the package metadata points to that exact URL. If the WAGHL GitHub organization uses another handle, update `repository`, `bugs`, and this URL together before publishing.
+1. Confirm that this repository is public at `https://github.com/vaibhav-joon/waghl` and that the package metadata points to that exact URL. If the repository moves, update `repository`, `bugs`, and this URL together before publishing.
 2. Ensure the unscoped npm package name `n8n-nodes-waghl` is available to the WAGHL npm owner. If it is unavailable, rename the package to `@waghl/n8n-nodes-waghl` and keep the `n8n-nodes-` prefix after the scope.
 3. Push the `main` branch, enable GitHub Actions, and configure npm Trusted Publishing for this repository and the `npm` GitHub environment. Do not publish from a local computer.
 4. Create a GitHub Release with tag `v1.0.0`. The publish workflow will run validation and publish with `--provenance`.

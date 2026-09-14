@@ -10,11 +10,11 @@
   },
   "homepage": "https://waghl.com",
   "bugs": {
-    "url": "https://github.com/waghl/n8n-nodes-waghl/issues"
+    "url": "https://github.com/vaibhav-joon/waghl/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/waghl/n8n-nodes-waghl.git"
+    "url": "git+https://github.com/vaibhav-joon/waghl.git"
   },
   "scripts": {
     "build": "n8n-node build",
