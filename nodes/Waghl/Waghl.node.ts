@@ -4,8 +4,14 @@ import type {
   INodeExecutionData,
   INodeType,
   INodeTypeDescription,
+  JsonObject,
 } from 'n8n-workflow';
-import { NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+
+import {
+  NodeApiError,
+  NodeConnectionTypes,
+  NodeOperationError,
+} from 'n8n-workflow';
 
 export class Waghl implements INodeType {
   description: INodeTypeDescription = {
