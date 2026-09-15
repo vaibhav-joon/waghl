@@ -203,7 +203,7 @@ if (!baseUrl) {
             throw new NodeOperationError(this.getNode(), 'Message cannot be empty', { itemIndex });
           }
           endpoint = '/send-message';
-          body = { api_key: apiKey, sender, number, message };
+          body = { sender, number, message };
         } else if (operation === 'sendMedia') {
           const mediaType = this.getNodeParameter('mediaType', itemIndex) as string;
           const url = String(this.getNodeParameter('mediaUrl', itemIndex, '')).trim();
@@ -214,7 +214,7 @@ if (!baseUrl) {
           }
 
           endpoint = '/send-media';
-          body = { api_key: apiKey, sender, number, media_type: mediaType, url };
+          body = { sender, number, media_type: mediaType, url };
 
           if (caption) body.caption = caption;
           if (mediaType === 'audio') {
@@ -229,7 +229,7 @@ if (!baseUrl) {
           }
 
           endpoint = '/send-document';
-          body = { api_key: apiKey, sender, number, media_type: 'document', url };
+          body = { sender, number, media_type: 'document', url };
           if (caption) body.caption = caption;
         } else {
           throw new NodeOperationError(this.getNode(), `Unsupported operation: ${operation}`, {
@@ -237,17 +237,21 @@ if (!baseUrl) {
           });
         }
 
-        const response = await this.helpers.httpRequest({
-          method: 'POST',
-          url: `${baseUrl}${endpoint}`,
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json',
-          },
-          body,
-          json: true,
-        });
-
+        const response = await this.helpers.httpRequestWithAuthentication.call(
+  this,
+  'waghlApi',
+  {
+    method: 'POST',
+    url: `${baseUrl}${endpoint}`,
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    body,
+    json: true,
+  },
+);
+        
         const responseJson: IDataObject =
           response !== null && typeof response === 'object'
             ? (response as IDataObject)
