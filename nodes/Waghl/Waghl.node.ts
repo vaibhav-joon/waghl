@@ -273,10 +273,14 @@ if (!baseUrl) {
         }
 
         if (error instanceof NodeOperationError) {
-          throw error;
-        }
+  throw new NodeOperationError(this.getNode(), error.message, {
+    itemIndex,
+  });
+}
 
-        throw new NodeOperationError(this.getNode(), error as Error, { itemIndex });
+throw new NodeApiError(this.getNode(), error as JsonObject, {
+  itemIndex,
+});
       }
     }
 
