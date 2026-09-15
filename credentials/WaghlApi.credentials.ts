@@ -1,9 +1,16 @@
-import type { ICredentialType, INodeProperties } from 'n8n-workflow';
+import type {
+  IAuthenticateGeneric,
+  ICredentialType,
+  INodeProperties,
+  Icon,
+} from 'n8n-workflow';
 
 export class WaghlApi implements ICredentialType {
   name = 'waghlApi';
   displayName = 'WAGHL API';
   documentationUrl = 'https://waghl.com';
+
+  icon: Icon = 'file:../icons/waghl.svg';
 
   properties: INodeProperties[] = [
     {
@@ -25,4 +32,13 @@ export class WaghlApi implements ICredentialType {
       description: 'WAGHL API base URL, without a trailing slash',
     },
   ];
+
+  authenticate: IAuthenticateGeneric = {
+    type: 'generic',
+    properties: {
+      body: {
+        api_key: '={{$credentials.apiKey}}',
+      },
+    },
+  };
 }
