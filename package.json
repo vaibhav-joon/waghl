@@ -6,6 +6,7 @@
   "keywords": ["n8n-community-node-package", "n8n", "waghl", "whatsapp"],
   "author": {
     "name": "WAGHL",
+    "email": "info@waghl.com",
     "url": "https://waghl.com"
   },
   "homepage": "https://waghl.com",
