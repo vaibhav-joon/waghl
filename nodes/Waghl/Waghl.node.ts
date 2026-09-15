@@ -172,12 +172,11 @@ export class Waghl implements INodeType {
     const returnData: INodeExecutionData[] = [];
     const credentials = await this.getCredentials('waghlApi');
 
-    const apiKey = String(credentials.apiKey ?? '').trim();
-    const baseUrl = String(credentials.baseUrl ?? '').trim().replace(/\/+$/, '');
+const baseUrl = String(credentials.baseUrl ?? '').trim().replace(/\/+$/, '');
 
-    if (!apiKey) {
-      throw new NodeOperationError(this.getNode(), 'WAGHL API key is missing');
-    }
+if (!baseUrl) {
+  throw new NodeOperationError(this.getNode(), 'WAGHL Base URL is missing');
+}
     if (!baseUrl) {
       throw new NodeOperationError(this.getNode(), 'WAGHL Base URL is missing');
     }
