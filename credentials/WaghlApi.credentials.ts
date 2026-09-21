@@ -1,5 +1,6 @@
 import type {
   IAuthenticateGeneric,
+  ICredentialTestRequest,
   ICredentialType,
   INodeProperties,
   Icon,
@@ -26,10 +27,9 @@ export class WaghlApi implements ICredentialType {
       displayName: 'Base URL',
       name: 'baseUrl',
       type: 'string',
-      default: 'https://domainname.com',
+      default: 'https://custom2.waghl.com',
       required: true,
-      placeholder: 'https://api.example.com',
-      description: 'WAGHL API base URL, without a trailing slash',
+      description: 'WAGHL API base URL',
     },
   ];
 
@@ -39,6 +39,14 @@ export class WaghlApi implements ICredentialType {
       body: {
         api_key: '={{$credentials.apiKey}}',
       },
+    },
+  };
+
+  test: ICredentialTestRequest = {
+    request: {
+      baseURL: '={{$credentials.baseUrl}}',
+      url: '/authenticate-apikey',
+      method: 'POST',
     },
   };
 }
