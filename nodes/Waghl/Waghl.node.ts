@@ -49,22 +49,37 @@ export class Waghl implements INodeType {
         type: 'options',
         noDataExpression: true,
         options: [
-          {
-            name: 'Send Text Message',
-            value: 'sendText',
-            action: 'Send a text message',
-          },
-          {
-            name: 'Send Media',
-            value: 'sendMedia',
-            action: 'Send media',
-          },
-          {
-            name: 'Send Document',
-            value: 'sendDocument',
-            action: 'Send a document',
-          },
-        ],
+  {
+    name: 'Send Document',
+    value: 'sendDocument',
+    action: 'Send a document',
+  },
+  {
+    name: 'Send Interactive Buttons',
+    value: 'sendInteractiveButtons',
+    action: 'Send interactive buttons',
+  },
+  {
+    name: 'Send Interactive Carousel',
+    value: 'sendInteractiveCarousel',
+    action: 'Send an interactive carousel',
+  },
+  {
+    name: 'Send Interactive List',
+    value: 'sendInteractiveList',
+    action: 'Send an interactive list',
+  },
+  {
+    name: 'Send Media',
+    value: 'sendMedia',
+    action: 'Send media',
+  },
+  {
+    name: 'Send Text Message',
+    value: 'sendText',
+    action: 'Send a text message',
+  },
+],
         default: 'sendText',
       },
       {
